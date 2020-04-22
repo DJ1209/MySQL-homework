@@ -13,9 +13,9 @@
       // Your username
       user: "root",
 
-      // Your password
+      // Your password  
       password: "Disha@1234",
-      database: "bamazonDB"
+      database: "bamazondb"
   });
 
   connection.connect(function(err) {
@@ -65,6 +65,7 @@
               connection.query(queryProducts, { item_id: product }, function(err, res) {
                   var productInfo = res[0];
                   if (err) throw err;
+                  console.log(JSON.stringify(productInfo))
                   if (quantity > productInfo.stock_quantity) {
                       console.log("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                       console.log("I'm sorry we don't have enough in stock, choose a smaller quantity!");
